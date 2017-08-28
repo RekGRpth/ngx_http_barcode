@@ -1,5 +1,5 @@
 # ngx http barcode module
-![Branch master](https://img.shields.io/badge/branch-master-brightgreen.svg?style=flat-square)[![Build](https://api.travis-ci.org/nginx-lover/ngx_http_barcode.svg)](https://travis-ci.org/nginx-lover/ngx_http_barcode)[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nginx-lover/ngx_http_barcode/master/LICENSE)[![release](https://img.shields.io/github/release/nginx-lover/ngx_http_barcode.svg)](https://github.com/nginx-lover/ngx_http_barcode/releases)
+![Branch master](https://img.shields.io/badge/branch-master-brightgreen.svg?style=flat-square)[![Build](https://api.travis-ci.org/x-v8/ngx_http_barcode.svg)](https://travis-ci.org/x-v8/ngx_http_barcode)[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nginx-lover/ngx_http_barcode/master/LICENSE)[![release](https://img.shields.io/github/release/x-v8/ngx_http_barcode.svg)](https://github.com/x-v8/ngx_http_barcode/releases)
 
 
 ngx_http_barcode_module is a an addon for nginx to generate barcode
@@ -41,6 +41,7 @@ ngx_http_barcode requires the following to run:
 
  * [nginx](http://nginx.org/) or other forked version like [openresty](http://openresty.org/)、[tengine](http://tengine.taobao.org/)
  * [zint](https://github.com/detailyang/zint) must use this version patched by [detailyang](https://github.com/detailyang), which can generate barcode in memory
+ * [libpng](http://www.libpng.org/pub/png/libpng.html)
 
 Direction
 ------------
@@ -150,7 +151,8 @@ Context:    location
         barcode;
     } 
     # type can be as following (default 20):
-    1: Code 11 51: Pharma One-Track 90: KIX Code
+    
+1: Code 11 51: Pharma One-Track 90: KIX Code
 2: Standard 2of5 52: PZN 92: Aztec Code
 3: Interleaved 2of5 53: Pharma Two-Track 93: DAFT Code
 4: IATA 2of5 55: PDF417 97: Micro QR Code
