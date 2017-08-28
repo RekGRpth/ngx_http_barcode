@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/zint.dir/common.c.o"
+  "CMakeFiles/zint.dir/library.c.o"
+  "CMakeFiles/zint.dir/render.c.o"
+  "CMakeFiles/zint.dir/ps.c.o"
+  "CMakeFiles/zint.dir/large.c.o"
+  "CMakeFiles/zint.dir/reedsol.c.o"
+  "CMakeFiles/zint.dir/gs1.c.o"
+  "CMakeFiles/zint.dir/svg.c.o"
+  "CMakeFiles/zint.dir/png.c.o"
+  "CMakeFiles/zint.dir/code.c.o"
+  "CMakeFiles/zint.dir/code128.c.o"
+  "CMakeFiles/zint.dir/2of5.c.o"
+  "CMakeFiles/zint.dir/upcean.c.o"
+  "CMakeFiles/zint.dir/telepen.c.o"
+  "CMakeFiles/zint.dir/medical.c.o"
+  "CMakeFiles/zint.dir/plessey.c.o"
+  "CMakeFiles/zint.dir/rss.c.o"
+  "CMakeFiles/zint.dir/postal.c.o"
+  "CMakeFiles/zint.dir/auspost.c.o"
+  "CMakeFiles/zint.dir/imail.c.o"
+  "CMakeFiles/zint.dir/code16k.c.o"
+  "CMakeFiles/zint.dir/dmatrix.c.o"
+  "CMakeFiles/zint.dir/pdf417.c.o"
+  "CMakeFiles/zint.dir/qr.c.o"
+  "CMakeFiles/zint.dir/maxicode.c.o"
+  "CMakeFiles/zint.dir/composite.c.o"
+  "CMakeFiles/zint.dir/aztec.c.o"
+  "CMakeFiles/zint.dir/code49.c.o"
+  "CMakeFiles/zint.dir/code1.c.o"
+  "CMakeFiles/zint.dir/gridmtx.c.o"
+  "libzint.pdb"
+  "libzint.dylib"
+  "libzint.2.4.2.dylib"
+  "libzint.2.4.dylib"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/zint.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

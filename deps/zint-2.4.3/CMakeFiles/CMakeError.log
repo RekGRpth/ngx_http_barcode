@@ -1,0 +1,128 @@
+Determining if the Q_WS_X11 exist failed with the following output:
+Change Dir: /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_04e3c/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_04e3c.dir/build.make CMakeFiles/cmTC_04e3c.dir/build
+Building CXX object CMakeFiles/cmTC_04e3c.dir/CheckSymbolExists.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/usr/local/Cellar/qt/4.8.7_1/include -F/usr/local/Cellar/qt/4.8.7_1/lib   -o CMakeFiles/cmTC_04e3c.dir/CheckSymbolExists.cxx.o -c /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+In file included from /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:
+In file included from /usr/local/Cellar/qt/4.8.7_1/include/QtCore/qglobal.h:68:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm:626:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cstring:61:10: fatal error: 'string.h' file not found
+#include <string.h>
+         ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_04e3c.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTC_04e3c/fast] Error 2
+
+File /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5ccd6/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_5ccd6.dir/build.make CMakeFiles/cmTC_5ccd6.dir/build
+Building CXX object CMakeFiles/cmTC_5ccd6.dir/CheckSymbolExists.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/usr/local/Cellar/qt/4.8.7_1/include -F/usr/local/Cellar/qt/4.8.7_1/lib   -o CMakeFiles/cmTC_5ccd6.dir/CheckSymbolExists.cxx.o -c /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+In file included from /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:
+In file included from /usr/local/Cellar/qt/4.8.7_1/include/QtCore/qglobal.h:68:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm:626:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cstring:61:10: fatal error: 'string.h' file not found
+#include <string.h>
+         ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_5ccd6.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTC_5ccd6/fast] Error 2
+
+File /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_45026/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_45026.dir/build.make CMakeFiles/cmTC_45026.dir/build
+Building CXX object CMakeFiles/cmTC_45026.dir/CheckSymbolExists.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/usr/local/Cellar/qt/4.8.7_1/include -F/usr/local/Cellar/qt/4.8.7_1/lib   -o CMakeFiles/cmTC_45026.dir/CheckSymbolExists.cxx.o -c /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+In file included from /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:
+In file included from /usr/local/Cellar/qt/4.8.7_1/include/QtCore/qglobal.h:68:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm:626:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cstring:61:10: fatal error: 'string.h' file not found
+#include <string.h>
+         ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_45026.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTC_45026/fast] Error 2
+
+File /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_642fa/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_642fa.dir/build.make CMakeFiles/cmTC_642fa.dir/build
+Building CXX object CMakeFiles/cmTC_642fa.dir/CheckSymbolExists.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/usr/local/Cellar/qt/4.8.7_1/include -F/usr/local/Cellar/qt/4.8.7_1/lib   -o CMakeFiles/cmTC_642fa.dir/CheckSymbolExists.cxx.o -c /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+In file included from /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:
+In file included from /usr/local/Cellar/qt/4.8.7_1/include/QtCore/qglobal.h:68:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm:626:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cstring:61:10: fatal error: 'string.h' file not found
+#include <string.h>
+         ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_642fa.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTC_642fa/fast] Error 2
+
+File /Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

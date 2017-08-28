@@ -1,0 +1,5 @@
+/Users/detailyang/art/opensource/personal/zint-2.4.3/frontend_qt4/CMakeFiles/zint-qt.dir
+/Users/detailyang/art/opensource/personal/zint-2.4.3/backend_qt4/CMakeFiles/QZint.dir
+/Users/detailyang/art/opensource/personal/zint-2.4.3/frontend/CMakeFiles/zint_frontend.dir
+/Users/detailyang/art/opensource/personal/zint-2.4.3/CMakeFiles/uninstall.dir
+/Users/detailyang/art/opensource/personal/zint-2.4.3/backend/CMakeFiles/zint.dir
