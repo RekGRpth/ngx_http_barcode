@@ -2,9 +2,10 @@
 * @Author: detailyang
 * @Date:   2016-05-18 09:43:45
 * @Last Modified by:   detailyang
-* @Last Modified time: 2016-05-19 14:36:37
+* @Last Modified time: 2017-08-28 10:11:11
 */
 #include "ngx_http_barcode_module.h"
+#include <zlib.h>
 
 static ngx_command_t ngx_http_barcode_commands[] = {
     {
@@ -172,13 +173,14 @@ ngx_http_barcode_handler(ngx_http_request_t *req) {
     if (blcf->height.len) {
         symbol->height = ngx_atoi(blcf->height.data, blcf->height.len);
         if (symbol->height < 1 || symbol->height > 1000) {
+            ZBarcode_Delete(symbol);
             return NGX_HTTP_BAD_REQUEST;
         }
     }
     if (blcf->scale.len) {
         symbol->scale = ngx_atofp(blcf->scale.data, blcf->scale.len, 2) / 100.00;
-        ngx_log_error(NGX_LOG_ERR, req->connection->log, 0, "scale %.2f", symbol->scale);
         if (symbol->scale < 0.01 || symbol->scale > 3) {
+            ZBarcode_Delete(symbol);
             return NGX_HTTP_BAD_REQUEST;
         }
     }
@@ -188,17 +190,20 @@ ngx_http_barcode_handler(ngx_http_request_t *req) {
     if (blcf->rotate.len) {
         rotate = ngx_atoi(blcf->rotate.data, blcf->rotate.len);
         if (rotate != 0 && rotate != 90 && rotate != 180 && rotate != 270) {
+            ZBarcode_Delete(symbol);
             return NGX_HTTP_BAD_REQUEST;
         }
     }
     if (blcf->barcode.len) {
         barcode = ngx_pcalloc(req->pool, blcf->barcode.len + 1);
         if (barcode == NULL) {
+            ZBarcode_Delete(symbol);
             ngx_log_error(NGX_LOG_ERR, req->connection->log, 0, "barcode: pcalloc barcode error");
             return NGX_HTTP_INTERNAL_SERVER_ERROR;
         }
         ngx_sprintf(barcode, "%V", &blcf->barcode);
         if (validator(NESET, (char *)barcode) != NGX_OK){
+            ZBarcode_Delete(symbol);
             return NGX_HTTP_BAD_REQUEST;
         }
         symbol->symbology = ngx_atoi(blcf->barcode.data, blcf->barcode.len);
@@ -212,6 +217,7 @@ ngx_http_barcode_handler(ngx_http_request_t *req) {
     }
     size = get_barcode_size(symbol, &image_height, &image_width);
     if (size == 0) {
+        ZBarcode_Delete(symbol);
         ngx_log_error(NGX_LOG_ERR, req->connection->log, 0, "barcode: barcode size is zero");
         return NGX_HTTP_INTERNAL_SERVER_ERROR;
     }
@@ -229,6 +235,7 @@ ngx_http_barcode_handler(ngx_http_request_t *req) {
     }
     if (blcf->scale.len) {
         if (png_pixel_scale(req, symbol, &image_height, &image_width) != NGX_OK) {
+            ZBarcode_Delete(symbol);
             ngx_log_error(NGX_LOG_ERR, req->connection->log, 0, "barcode: scale error");
             return NGX_HTTP_INTERNAL_SERVER_ERROR;
         }
@@ -236,10 +243,12 @@ ngx_http_barcode_handler(ngx_http_request_t *req) {
     error_number = png_pixel_plot(symbol, image_height, image_width,
         symbol->output_buffer, rotate, &png_buf);
     if (error_number != 0) {
+        ZBarcode_Delete(symbol);
         ngx_log_error(NGX_LOG_ERR, req->connection->log, 0, "barcode: errno %d", error_number);
         return NGX_HTTP_INTERNAL_SERVER_ERROR;
     }
-    ngx_log_error(NGX_LOG_ERR, req->connection->log, 0, "size: %d", png_buf.size);
+
+    ZBarcode_Delete(symbol);
 
     req->headers_out.status = 200;
     req->headers_out.content_length_n = png_buf.size;
@@ -810,6 +819,7 @@ png_pixel_plot(struct zint_symbol *symbol,
     }
 
     png_set_write_fn(png_ptr, png_buf, ngx_http_barcode_png_write_data, NULL);
+
 
     /* set compression */
     png_set_compression_level(png_ptr, Z_BEST_COMPRESSION);

@@ -1,4 +1,34 @@
 ngx_addon_name=ngx_http_barcode_module
+SRCS="\
+deps/zint-2.4.3/backend/2of5.c        deps/zint-2.4.3/backend/library.c \
+deps/zint-2.4.3/backend/auspost.c     deps/zint-2.4.3/backend/maxicode.c \
+deps/zint-2.4.3/backend/aztec.c       deps/zint-2.4.3/backend/medical.c \
+deps/zint-2.4.3/backend/code128.c     deps/zint-2.4.3/backend/pdf417.c \
+deps/zint-2.4.3/backend/code16k.c     deps/zint-2.4.3/backend/plessey.c \
+deps/zint-2.4.3/backend/code1.c       deps/zint-2.4.3/backend/png.c \
+deps/zint-2.4.3/backend/code49.c      deps/zint-2.4.3/backend/postal.c \
+deps/zint-2.4.3/backend/code.c        deps/zint-2.4.3/backend/ps.c \
+deps/zint-2.4.3/backend/common.c      deps/zint-2.4.3/backend/qr.c \
+deps/zint-2.4.3/backend/composite.c   deps/zint-2.4.3/backend/reedsol.c \
+deps/zint-2.4.3/backend/dllversion.c  deps/zint-2.4.3/backend/render.c \
+deps/zint-2.4.3/backend/dmatrix.c     deps/zint-2.4.3/backend/rss.c \
+deps/zint-2.4.3/backend/gridmtx.c     deps/zint-2.4.3/backend/svg.c \
+deps/zint-2.4.3/backend/gs1.c         deps/zint-2.4.3/backend/telepen.c \
+deps/zint-2.4.3/backend/imail.c       deps/zint-2.4.3/backend/upcean.c \
+deps/zint-2.4.3/backend/large.c \
+"
+INCS="\
+deps/zint-2.4.3/backend/aztec.h      deps/zint-2.4.3/backend/large.h
+deps/zint-2.4.3/backend/code1.h      deps/zint-2.4.3/backend/maxicode.h
+deps/zint-2.4.3/backend/code49.h     deps/zint-2.4.3/backend/maxipng.h
+deps/zint-2.4.3/backend/common.h     deps/zint-2.4.3/backend/pdf417.h
+deps/zint-2.4.3/backend/composite.h  deps/zint-2.4.3/backend/qr.h
+deps/zint-2.4.3/backend/dmatrix.h    deps/zint-2.4.3/backend/reedsol.h
+deps/zint-2.4.3/backend/font.h       deps/zint-2.4.3/backend/rss.h
+deps/zint-2.4.3/backend/gb2312.h     deps/zint-2.4.3/backend/sjis.h
+deps/zint-2.4.3/backend/gridmtx.h    deps/zint-2.4.3/backend/zint.h
+deps/zint-2.4.3/backend/gs1.h
+"
 
 if test -n "$ngx_module_link"; then
     ngx_module_type=HTTP
@@ -11,8 +41,8 @@ if test -n "$ngx_module_link"; then
     . auto/module
 else
     HTTP_MODULES="$HTTP_MODULES $ngx_addon_name"
-    NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_barcode_module.c"
-    NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/ngx_http_barcode_module.h"
-    CFLAGS="$CFLAGS"
-    CORE_LIBS="$CORE_LIBS -l zint"
+    NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_barcode_module.c $SRCS"
+    NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/ngx_http_barcode_module.h $INCS"
+    CFLAGS="$CFLAGS -Ideps/zint-2.4.3/backend -std=c99 -w "
+    CORE_LIBS="$CORE_LIBS -lz"
 fi
